@@ -8,24 +8,22 @@
 #include <stdint.h>
 
 template<typename T>
-uint8_t GetElementValue(T e)
+unsigned short int GetElementValue(T e)
 {
 	return (e == 0 ? 2 : 1);
 }
 
 int main()
 {
-	uint8_t nCases;
+	unsigned short int nCases;
 	std::cin >> nCases;
-	nCases -= 48; //Adjusting for ASCII input
-	for (uint8_t i = 0; i < nCases; ++i)
+	for (unsigned short int i = 0; i < nCases; ++i)
 	{
 		//Capture Data
-		uint8_t inputSize;
+		unsigned short int inputSize;
 		std::vector<unsigned long int> inputArr;
 		std::cin >> inputSize;
-		inputSize -= 48;
-		for (uint8_t j = 0; j < inputSize; ++j)
+		for (unsigned short int j = 0; j < inputSize; ++j)
 		{
 			unsigned long int temp;
 			std::cin >> temp;
@@ -36,7 +34,7 @@ int main()
 		//Process Data
 		unsigned long long int cummulativeValueSum = 0; //!WIP! still have to determine the max size of the cummulative sum for optimization
 														//For the time being we'll use the largest int container
-		for (uint8_t j = 0; j < inputSize; ++j)
+		for (unsigned short int j = 0; j < inputSize; ++j)
 		{
 			cummulativeValueSum += ((j + 1) * (inputSize - j) * GetElementValue(inputArr[j]));
 		}
